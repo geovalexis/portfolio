@@ -21,20 +21,30 @@ const TAGS = {
 }
 const PROJECTS = [
   {
-    title: "SVGL - A beautiful library with SVG logos",
+    title: "ML in ARGs - Machine Learning to fight against Antibiotic Resistant Genes",
     description:
-      "Biblioteca de logos SVG de las marcas más populares. +10k visitas al mes. +2K svgs descargados. Creado desde cero con Next.js, React y Tailwind CSS.",
-    link: "https://svgl.vercel.app/",
-    github: "https://github.com/pheralb/svgl",
-    image: "/projects/svgl.webp",
+      "Using genetic information from resistant bacteria, it is possible to model the characteristics that confer resistance to certain antibiotics. This information could be used to predict new potential resistant genes or sets of genes and take appropriate action. In this project, real data from a series of resistant bacteria identified in the laboratory will be used to build a machine learning model capable of predicting potential resistance genes (ARGS).",
+    link: "https://geovalexis.github.io/ml-in-args/",
+    github: "https://github.com/geovalexis/ml-in-args",
+    image: "https://itaintmagic.riken.jp/wp-content/uploads/resisting-bacteria.png",
     tags: [TAGS.NEXT, TAGS.TAILWIND],
   },
   {
-    title: "AdventJS - Retos de programación con JavaScript y TypeScript",
+    title: "Glaucoma Detection - CNN model to detect glaucoma disease using fundus images",
     description:
-      "Plataforma gratuita con retos de programación. Más de 1 millón de visitas en un mes. +50K retos completados. Creada desde cero con Next.js, React y Tailwind CSS.",
-    link: "https://adventjs.dev",
-    image: "/projects/adventjs.webp",
+      "In this project, we developed a convolutional neural network (CNN) based on the Xception architecture to classify fundus images for glaucoma detection, achieving an F1-score of 0.87 ± 0.05. While provided training folds were used, a more flexible cross-validation strategy would be preferable to enhance model evaluation. Key factors in designing partitions include ensuring diversity and balanced class distribution to improve generalization.",
+    link: "https://geovalexis.github.io/GlaucomaDetection/",
+    github: "https://github.com/geovalexis/PP2GO",
+    image: "https://glaucoma.org.au/sites/default/files/inline-images/SLT%202400x1268.png",
+    tags: [TAGS.NEXT, TAGS.TAILWIND],
+  },
+  {
+    title: "PP2GO - Phylogenetic Profiling To Gene Ontology",
+    description:
+      "Machine Learning to predict functional relationships of uncharacterized proteins through orthology and co-evolution information. A pipeline was developed to test different models and filters in a High-Performance Computing environment",
+    link: "https://github.com/geovalexis/PP2GO",
+    github: "https://github.com/geovalexis/PP2GO",
+    image: "https://d20khd7ddkh5ls.cloudfront.net/coevolution_bees_flowers.png",
     tags: [TAGS.NEXT, TAGS.TAILWIND],
   },
 ]
