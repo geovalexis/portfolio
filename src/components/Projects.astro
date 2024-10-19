@@ -1,9 +1,9 @@
 ---
-import LinkButton from "./LinkButton.astro"
-import GitHub from "./icons/GitHub.astro"
-import Link from "./icons/Link.astro"
-import NextJS from "./icons/NextJS.astro"
-import Tailwind from "./icons/Tailwind.astro"
+import LinkButton from "./LinkButton.astro";
+import GitHub from "./icons/GitHub.astro";
+import Link from "./icons/Link.astro";
+import NextJS from "./icons/NextJS.astro";
+import Tailwind from "./icons/Tailwind.astro";
 
 const TAGS = {
   NEXT: {
@@ -16,24 +16,28 @@ const TAGS = {
     class: "bg-[#003159] text-white",
     icon: Tailwind,
   },
-}
+};
 const PROJECTS = [
   {
-    title: "ML in ARGs - Machine Learning to fight against Antibiotic Resistant Genes",
+    title:
+      "ML in ARGs - Machine Learning to fight against Antibiotic Resistant Genes",
     description:
       "Using genetic information from resistant bacteria, it is possible to model the characteristics that confer resistance to certain antibiotics. This information could be used to predict new potential resistant genes or sets of genes and take appropriate action. In this project, real data from a series of resistant bacteria identified in the laboratory will be used to build a machine learning model capable of predicting potential resistance genes (ARGS).",
     link: "https://geovalexis.github.io/ml-in-args/",
     github: "https://github.com/geovalexis/ml-in-args",
-    image: "https://itaintmagic.riken.jp/wp-content/uploads/resisting-bacteria.png",
+    image:
+      "https://itaintmagic.riken.jp/wp-content/uploads/resisting-bacteria.png",
     tags: [TAGS.NEXT, TAGS.TAILWIND],
   },
   {
-    title: "Glaucoma Detection - CNN model to detect glaucoma disease using fundus images",
+    title:
+      "Glaucoma Detection - CNN model to detect glaucoma disease using fundus images",
     description:
       "In this project, we developed a convolutional neural network (CNN) based on the Xception architecture to classify fundus images for glaucoma detection, achieving an F1-score of 0.87 ± 0.05. While provided training folds were used, a more flexible cross-validation strategy would be preferable to enhance model evaluation. Key factors in designing partitions include ensuring diversity and balanced class distribution to improve generalization.",
     link: "https://geovalexis.github.io/GlaucomaDetection/",
     github: "https://github.com/geovalexis/PP2GO",
-    image: "https://glaucoma.org.au/sites/default/files/inline-images/SLT%202400x1268.png",
+    image:
+      "https://glaucoma.org.au/sites/default/files/inline-images/SLT%202400x1268.png",
     tags: [TAGS.NEXT, TAGS.TAILWIND],
   },
   {
@@ -45,10 +49,10 @@ const PROJECTS = [
     image: "https://d20khd7ddkh5ls.cloudfront.net/coevolution_bees_flowers.png",
     tags: [TAGS.NEXT, TAGS.TAILWIND],
   },
-]
+];
 ---
 
-<div class="flex flex-col gap-y-16">
+<!-- <div class="flex flex-col gap-y-16">
   {
     PROJECTS.map(({ image, title, description, tags, link, github }) => (
     <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
@@ -97,4 +101,93 @@ const PROJECTS = [
 </article>
     ))
   }
+</div> -->
+<div class="projects-carousel">
+  <input type="radio" name="slider" id="item-1" checked />
+  <input type="radio" name="slider" id="item-2" />
+  <input type="radio" name="slider" id="item-3" />
+  <div class="cards">
+    <label class="card" for="item-1" id="song-1">
+      <img
+        src="https://images.unsplash.com/photo-1530651788726-1dbf58eeef1f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=882&q=80"
+        alt="song"
+      />
+    </label>
+    <label class="card" for="item-2" id="song-2">
+      <img
+        src="https://images.unsplash.com/photo-1559386484-97dfc0e15539?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80"
+        alt="song"
+      />
+    </label>
+    <label class="card" for="item-3" id="song-3">
+      <img
+        src="https://images.unsplash.com/photo-1533461502717-83546f485d24?ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"
+        alt="song"
+      />
+    </label>
+  </div>
 </div>
+
+<style>
+  .projects-carousel {
+    width: 100%;
+    height: 1200px; /* Set a specific height */
+    max-width: 800px;
+    max-height: 600px;
+  }
+
+  .cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 80%; /* Ensure parent has a defined height */
+    position: relative;
+    margin-bottom: 20px;
+  }
+
+  .card {
+    position: absolute;
+    width: 60%;
+    /* max-height: 600px; */ /* TODO: Find out why this property is messing up the layout */
+    left: 0;
+    right: 0;
+    margin: auto;
+    transition: transform 0.4s ease;
+    cursor: pointer;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  #item-1:checked ~ .cards #song-3,
+  #item-2:checked ~ .cards #song-1,
+  #item-3:checked ~ .cards #song-2 {
+    transform: translatex(-40%) scale(0.8);
+    opacity: 0.4;
+    z-index: 0;
+  }
+  #item-1:checked ~ .cards #song-2,
+  #item-2:checked ~ .cards #song-3,
+  #item-3:checked ~ .cards #song-1 {
+    transform: translatex(40%) scale(0.8);
+    opacity: 0.4;
+    z-index: 0;
+  }
+  #item-1:checked ~ .cards #song-1,
+  #item-2:checked ~ .cards #song-2,
+  #item-3:checked ~ .cards #song-3 {
+    transform: translatex(0) scale(1);
+    opacity: 1;
+    z-index: 1;
+  }
+  #item-1:checked ~ .cards #song-1 img,
+  #item-2:checked ~ .cards #song-2 img,
+  #item-3:checked ~ .cards #song-3 img {
+    box-shadow: 0px 0px 5px 0px rgba(81, 81, 81, 0.47);
+  }
+</style>
