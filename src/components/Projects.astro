@@ -27,7 +27,7 @@ const PROJECTS = [
     github: "https://github.com/geovalexis/ml-in-args",
     image:
       "https://itaintmagic.riken.jp/wp-content/uploads/resisting-bacteria.png",
-    tags: [TAGS.NEXT, TAGS.TAILWIND],
+    tags: [TAGS.NEXT, TAGS.TAILWIND], //TODO: update tags
   },
   {
     title:
@@ -38,7 +38,7 @@ const PROJECTS = [
     github: "https://github.com/geovalexis/PP2GO",
     image:
       "https://glaucoma.org.au/sites/default/files/inline-images/SLT%202400x1268.png",
-    tags: [TAGS.NEXT, TAGS.TAILWIND],
+    tags: [TAGS.NEXT, TAGS.TAILWIND], //TODO: update tags
   },
   {
     title: "PP2GO - Phylogenetic Profiling To Gene Ontology",
@@ -47,86 +47,18 @@ const PROJECTS = [
     link: "https://github.com/geovalexis/PP2GO",
     github: "https://github.com/geovalexis/PP2GO",
     image: "https://d20khd7ddkh5ls.cloudfront.net/coevolution_bees_flowers.png",
-    tags: [TAGS.NEXT, TAGS.TAILWIND],
-  },
-];
-
-const SONGS = [
-  {
-    title: "Song 1",
-    image:
-      "https://images.unsplash.com/photo-1530651788726-1dbf58eeef1f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=882&q=80",
-  },
-  {
-    title: "Song 2",
-    image:
-      "https://images.unsplash.com/photo-1559386484-97dfc0e15539?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80",
-  },
-  {
-    title: "Song 3",
-    image:
-      "https://images.unsplash.com/photo-1533461502717-83546f485d24?ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60",
+    tags: [TAGS.NEXT, TAGS.TAILWIND], //TODO: update tags
   },
 ];
 ---
 
-<!-- <div class="flex flex-col gap-y-16">
-  {
-    PROJECTS.map(({ image, title, description, tags, link, github }) => (
-    <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
-  <div class="w-full md:w-1/2">
-    <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
-      <img alt="Recién llegado vs 5 años en Nueva Zelanda" class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="lazy" src={image} />
-    </div>
-  </div>
-
-  <div class="w-full md:w-1/2 md:max-w-lg">
-    <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
-      {title}
-    </h3>
-    <div class="flex flex-wrap mt-2">
-      <ul class="flex flex-row mb-2 gap-x-2">
-          {tags.map((tag) => (
-            <li>
-              <span
-                class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
-              >
-                <tag.icon class="size-4" />
-                {tag.name}
-              </span>
-            </li>
-          ))}
-        </ul>
-
-      <div class="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
-      <footer class="flex items-end justify-start mt-4 gap-x-4">
-          {github && (
-            <LinkButton href={github}>
-              <GitHub class="size-6" />
-              Code
-              
-            </LinkButton>
-          )}
-          {link && (
-            <LinkButton href={link}>
-              <Link class="size-4" />
-              Preview
-            </LinkButton>
-          )}
-        </footer>
-    </div>
-  </div>
-</article>
-    ))
-  }
-</div> -->
 <div class="projects-carousel">
   {
-    SONGS.map(({}, index) => (
+    PROJECTS.map(({}, index) => (
       <input
         type="radio"
         name="slider"
-        id={`item-${index + 1}`}
+        id={`project-${index + 1}`}
         style="display: none;"
       />
     ))
@@ -134,11 +66,62 @@ const SONGS = [
 
   <div class="cards">
     {
-      SONGS.map(({ image, title }, index) => (
-        <label class="card" for={`item-${index + 1}`} id={`song-${index + 1}`}>
-          <img src={image} alt="song" />
-        </label>
-      ))
+      PROJECTS.map(
+        ({ image, title, description, tags, link, github }, index) => (
+          <label
+            class="card"
+            for={`project-${index + 1}`}
+            id={`project-content-${index + 1}`}
+          >
+            <article class="flex flex-col justify-center items-center bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md">
+              {/* Header image */}
+              <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+                <img
+                  class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
+                  loading="lazy"
+                  src={image}
+                />
+              </div>
+              {/* Content */}
+              <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+                {title}
+              </h3>
+              <div class="flex flex-wrap mt-2">
+                <ul class="flex flex-row mb-2 gap-x-2">
+                  {tags.map((tag) => (
+                    <li>
+                      <span
+                        class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                      >
+                        <tag.icon class="size-4" />
+                        {tag.name}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+                <div class="mt-2 text-gray-700 dark:text-gray-400">
+                  {description}
+                </div>
+                {/* Footer */}
+                <footer class="flex items-end justify-start mt-4 gap-x-4">
+                  {github && (
+                    <LinkButton href={github}>
+                      <GitHub class="size-6" />
+                      Code
+                    </LinkButton>
+                  )}
+                  {link && (
+                    <LinkButton href={link}>
+                      <Link class="size-4" />
+                      Preview
+                    </LinkButton>
+                  )}
+                </footer>
+              </div>
+            </article>
+          </label>
+        )
+      )
     }
   </div>
 </div>
@@ -146,24 +129,18 @@ const SONGS = [
 <style>
   .projects-carousel {
     width: 100%;
-    height: 800px; /* Set a specific height */
-    max-width: 800px;
-    max-height: 600px;
+    height: 1000px; /* Set a specific height */
   }
 
   .cards {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100%;
     height: 80%; /* Ensure parent has a defined height */
     position: relative;
-    margin-bottom: 20px;
   }
 
   .card {
     position: absolute;
-    width: 85%;
+    max-width: 60%;
     /* max-height: 600px; */ /* TODO: Find out why this property is messing up the layout */
     height: 70%;
     left: 0;
@@ -233,13 +210,16 @@ const SONGS = [
   );
   inputs.forEach((input, index) => {
     input.addEventListener("change", () => {
-      changeCardStyles(`song-${index + 1}`, cardTransformations.central);
       changeCardStyles(
-        `song-${((index - 1 + inputs.length) % inputs.length) + 1}`,
+        `project-content-${index + 1}`,
+        cardTransformations.central
+      );
+      changeCardStyles(
+        `project-content-${((index - 1 + inputs.length) % inputs.length) + 1}`,
         cardTransformations.left
       );
       changeCardStyles(
-        `song-${((index + 1) % inputs.length) + 1}`,
+        `project-content-${((index + 1) % inputs.length) + 1}`,
         cardTransformations.right
       );
     });
