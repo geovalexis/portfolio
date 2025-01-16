@@ -26,7 +26,7 @@ const PROJECTS = [
     link: "https://geovalexis.github.io/ml-in-args/",
     github: "https://github.com/geovalexis/ml-in-args",
     image:
-      "https://itaintmagic.riken.jp/wp-content/uploads/resisting-bacteria.png",
+      "https://itaintmagic.riken.jp/wp-content/uploads/resisting-bacteria.png", //TODO: update image
     tags: [TAGS.NEXT, TAGS.TAILWIND], //TODO: update tags
   },
   {
@@ -46,7 +46,7 @@ const PROJECTS = [
       "Machine Learning to predict functional relationships of uncharacterized proteins through orthology and co-evolution information. A pipeline was developed to test different models and filters in a High-Performance Computing environment",
     link: "https://github.com/geovalexis/PP2GO",
     github: "https://github.com/geovalexis/PP2GO",
-    image: "https://d20khd7ddkh5ls.cloudfront.net/coevolution_bees_flowers.png",
+    image: "https://d20khd7ddkh5ls.cloudfront.net/coevolution_bees_flowers.png", //TODO: update image
     tags: [TAGS.NEXT, TAGS.TAILWIND], //TODO: update tags
   },
 ];
@@ -129,20 +129,19 @@ const PROJECTS = [
 <style>
   .projects-carousel {
     width: 100%;
-    height: 1000px; /* Set a specific height */
+    min-height: 600px;
+    height: 950px; /* NOTE: set a fixed height to avoid layout shift */
   }
 
   .cards {
     width: 100%;
-    height: 80%; /* Ensure parent has a defined height */
+    height: 80%;
     position: relative;
   }
 
   .card {
-    position: absolute;
-    max-width: 60%;
-    /* max-height: 600px; */ /* TODO: Find out why this property is messing up the layout */
-    height: 70%;
+    position: absolute; /* NOTE: absolutely-positioned elements won't be counted for auto height, so we need to set a height for the parent */
+    width: 60%;
     left: 0;
     right: 0;
     margin: auto;
