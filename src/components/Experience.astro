@@ -1,5 +1,5 @@
 ---
-import ExperienceItem from "./ExperienceItem.astro"
+import ExperienceItem from "./ExperienceItem.astro";
 
 const EXPERIENCIE = [
   {
@@ -7,21 +7,23 @@ const EXPERIENCIE = [
     title: "Big Data Engineer",
     company: "Teladoc Health",
     description: {
-      intro: "Building a cloud native Big Data Analytics pipeline able to process up to 10 million records a day.",
+      intro:
+        "Built a cloud native Big Data Analytics pipeline able to process up to 10 million records a day.",
       points: [
-        "Provision multi-environment Azure and Databricks resources through Infrastructure as Code (IaC).",
-        "ETL pipeline built on top of Azure Data Factory, Azure Data Lake Storage Gen2, Databricks (PySpark), MySQL and FastAPI.",
-        "CI/CD pipeline with GitHub Actions and Jenkins.",
-        "Data orchestrations with Apache Airflow.",
+        "Lead Infrastructure as Code (IaC) efforts of the team.",
+        "Build ETL pipelines to ingest electronic health records (EHR) data from multiple sources, transform and store it in a structured format. Processing up to 10 million records a day.",
+        "Provision multi-environment Azure Databricks and Apache Airflow resources.",
+        "Design and implement an automated testing and deployment strategy (CI/CD).",
       ],
-    }
+    },
   },
   {
     date: "Sep 2020 - Apr 2023",
     title: "Software Engineer",
     company: "Made Of Genes",
     description: {
-      intro: "Collaborated on multidisciplinary tasks within bioinformatics and IT teams of the company.",
+      intro:
+        "Collaborated on multidisciplinary tasks within bioinformatics and IT teams of the company.",
       points: [
         "Genetic and biochemical data integration through ETL pipelines developed with Python.",
         "REST APIs (with Flask and NodeJS) development to support data integration workflows.",
@@ -30,7 +32,7 @@ const EXPERIENCIE = [
         "Infrastructure as Code management with AWS, Terraform, Kubernetes and Kafka.",
         "Unit, integrity and end-to-end tests (Jest and Pytest).",
       ],
-    }
+    },
   },
   {
     date: "Jan 2021 - May 2021",
@@ -38,12 +40,12 @@ const EXPERIENCIE = [
     company: "Barcelona Supercomputing Center",
     description: {
       intro: `Developed my final thesis titled “Machine Learning to predict protein function based on co-evolutionary information”, 
-      awarded with "with Honours" mention for both Computer Science and Biotechnology degree
+      awarded with "with Honours" mention for both Computer Science and Biotechnology degree.
       `,
       points: [],
-    }
+    },
   },
-]
+];
 ---
 
 <ol class="relative mt-16">
