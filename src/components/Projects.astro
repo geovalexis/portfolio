@@ -4,8 +4,32 @@ import GitHub from "./icons/GitHub.astro";
 import Link from "./icons/Link.astro";
 import NextJS from "./icons/NextJS.astro";
 import Tailwind from "./icons/Tailwind.astro";
+import Python from "./icons/Python.astro";
+import Pandas from "./icons/Pandas.astro";
+import R from "./icons/R.astro";
+import ScikitLearn from "./icons/ScikitLearn.astro";
+import Typescript from "./icons/Typescript.astro";
+import TensorFlow from "./icons/TensorFlow.astro";
+import Matplotlib from "./icons/Matplotlib.astro";
 
 const TAGS = {
+  // Programming languages
+  TYPESCRIPT: {
+    name: "TypeScript",
+    class: "bg-[#007ACC] text-white",
+    icon: Typescript,
+  },
+  PYTHON: {
+    name: "Python",
+    class: "bg-[#3776AB] text-white",
+    icon: Python,
+  },
+  R: {
+    name: "R",
+    class: "bg-[#276DC3] text-white",
+    icon: R,
+  },
+  // Web technologies
   NEXT: {
     name: "Next.js",
     class: "bg-black text-white",
@@ -16,6 +40,27 @@ const TAGS = {
     class: "bg-[#003159] text-white",
     icon: Tailwind,
   },
+  // Data Science
+  PANDAS: {
+    name: "Pandas",
+    class: "bg-[#150458] text-white",
+    icon: Pandas,
+  },
+  SCIKITLEARN: {
+    name: "Scikit-learn",
+    class: "bg-[#F7931E] text-white",
+    icon: ScikitLearn,
+  },
+  TENSORFLOW: {
+    name: "TensorFlow",
+    class: "bg-[#FF6F00] text-white",
+    icon: TensorFlow,
+  },
+  MATPLOTLIB: {
+    name: "Matplotlib",
+    class: "bg-[#11557C] text-white",
+    icon: Matplotlib,
+  },
 };
 const PROJECTS = [
   {
@@ -25,9 +70,8 @@ const PROJECTS = [
       "Using genetic information from resistant bacteria, it is possible to model the characteristics that confer resistance to certain antibiotics. This information could be used to predict new potential resistant genes or sets of genes and take appropriate action. In this project, real data from a series of resistant bacteria identified in the laboratory will be used to build a machine learning model capable of predicting potential resistance genes (ARGS).",
     link: "https://geovalexis.github.io/ml-in-args/",
     github: "https://github.com/geovalexis/ml-in-args",
-    image:
-      "https://itaintmagic.riken.jp/wp-content/uploads/resisting-bacteria.png", //TODO: update image
-    tags: [TAGS.NEXT, TAGS.TAILWIND], //TODO: update tags
+    image: "/projects/ml-in-args.webp",
+    tags: [TAGS.PYTHON, TAGS.R, TAGS.PANDAS, TAGS.SCIKITLEARN],
   },
   {
     title:
@@ -36,9 +80,8 @@ const PROJECTS = [
       "In this project, we developed a convolutional neural network (CNN) based on the Xception architecture to classify fundus images for glaucoma detection, achieving an F1-score of 0.87 ± 0.05. While provided training folds were used, a more flexible cross-validation strategy would be preferable to enhance model evaluation. Key factors in designing partitions include ensuring diversity and balanced class distribution to improve generalization.",
     link: "https://geovalexis.github.io/GlaucomaDetection/",
     github: "https://github.com/geovalexis/PP2GO",
-    image:
-      "https://glaucoma.org.au/sites/default/files/inline-images/SLT%202400x1268.png",
-    tags: [TAGS.NEXT, TAGS.TAILWIND], //TODO: update tags
+    image: "/projects/glaucoma-eye.webp",
+    tags: [TAGS.PYTHON, TAGS.TENSORFLOW, TAGS.PANDAS, TAGS.MATPLOTLIB],
   },
   {
     title: "PP2GO - Phylogenetic Profiling To Gene Ontology",
@@ -46,8 +89,8 @@ const PROJECTS = [
       "Machine Learning to predict functional relationships of uncharacterized proteins through orthology and co-evolution information. A pipeline was developed to test different models and filters in a High-Performance Computing environment",
     link: "https://github.com/geovalexis/PP2GO",
     github: "https://github.com/geovalexis/PP2GO",
-    image: "https://d20khd7ddkh5ls.cloudfront.net/coevolution_bees_flowers.png", //TODO: update image
-    tags: [TAGS.NEXT, TAGS.TAILWIND], //TODO: update tags
+    image: "/projects/coevolution.webp",
+    tags: [TAGS.PYTHON, TAGS.PANDAS, TAGS.SCIKITLEARN, TAGS.MATPLOTLIB],
   },
 ];
 ---
@@ -73,7 +116,7 @@ const PROJECTS = [
             for={`project-${index + 1}`}
             id={`project-content-${index + 1}`}
           >
-            <article class="flex flex-col justify-center items-center bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md">
+            <article class="flex flex-col justify-center items-center bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md gap-y-3">
               {/* Header image */}
               <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
                 <img
@@ -130,7 +173,7 @@ const PROJECTS = [
   .projects-carousel {
     width: 100%;
     min-height: 600px;
-    height: 950px; /* NOTE: set a fixed height to avoid layout shift */
+    height: 750px; /* NOTE: set a fixed height to avoid layout shift */
   }
 
   .cards {
