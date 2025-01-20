@@ -1,0 +1,36 @@
+---
+import ExperienceItem from "./ExperienceItem.astro";
+
+const EDUCATION = [
+  {
+    date: "Sep 2021 - Jun 2023",
+    title: "MSc in Data Science",
+    company: "Universitat Oberta de Catalunya",
+    description: {
+      intro:
+        "Master's Degree in Data Science, with a focus on Machine Learning, Deep Learning, and Big Data.",
+      points: [],
+    },
+  },
+  {
+    date: "Sep 2016 - Jun 2021",
+    title: "Dual BSc in Computer Science and Biotechnology",
+    company: "Universitat Rovira i Virgili",
+    description: {
+    intro:
+      "Bachelor's Degree in Computer Science and Biotechnology. Completed full credits in both degrees (400 ECTS). Developed a solid background in software development, bioinformatics, and the intersection of both fields.",
+      points: [],
+    },
+  },
+];
+---
+
+<ol class="relative mt-16">
+  {
+    EDUCATION.map((experiencie) => (
+      <li class="">
+        <ExperienceItem {...experiencie} />
+      </li>
+    ))
+  }
+</ol>
