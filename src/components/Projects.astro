@@ -11,6 +11,9 @@ import ScikitLearn from "./icons/ScikitLearn.astro";
 import Typescript from "./icons/Typescript.astro";
 import TensorFlow from "./icons/TensorFlow.astro";
 import Matplotlib from "./icons/Matplotlib.astro";
+import JavaScript from "./icons/JavaScript.astro";
+import D3 from "./icons/D3.astro";
+import Selenium from "./icons/Selenium.astro";
 
 const TAGS = {
   // Programming languages
@@ -18,6 +21,11 @@ const TAGS = {
     name: "TypeScript",
     class: "bg-[#007ACC] text-white",
     icon: Typescript,
+  },
+  JAVASCRIPT: {
+    name: "JavaScript",
+    class: "bg-[#F7DF1E] text-black",
+    icon: JavaScript,
   },
   PYTHON: {
     name: "Python",
@@ -39,6 +47,16 @@ const TAGS = {
     name: "Tailwind CSS",
     class: "bg-[#003159] text-white",
     icon: Tailwind,
+  },
+  D3: {
+    name: "D3.js",
+    class: "bg-[#F9A03C] text-white",
+    icon: D3,
+  },
+  SELENIUM: {
+    name: "Selenium",
+    class: "bg-[#43B02A] text-white",
+    icon: Selenium,
   },
   // Data Science
   PANDAS: {
@@ -92,6 +110,24 @@ const PROJECTS = [
     github: "https://github.com/geovalexis/PP2GO",
     image: "/projects/coevolution.webp",
     tags: [TAGS.PYTHON, TAGS.PANDAS, TAGS.SCIKITLEARN, TAGS.MATPLOTLIB],
+  },
+  {
+    title: "Non-medical health determinants",
+    description:
+      "In this project, we will study some of the non-biomedical determinants of health in OECD countries and their evolution in recent years. We will demonstrate how, apart from the usual biochemical and genetic determinants, there are also many other external factors that can affect people's health.",
+    link: "https://github.com/geovalexis/health-determinants",
+    github: "https://github.com/geovalexis/health-determinants",
+    image: "/projects/health-determinants.webp",
+    tags: [TAGS.R, TAGS.JAVASCRIPT, TAGS.D3],
+  },
+  {
+    title: "Spain Medicine Scraper",
+    description:
+      "Web scraping of medications registered by the government of Spain from the website https://cima.aemps.es/.",
+    link: "https://github.com/roberttnovak/MedicineScraper",
+    github: "https://github.com/roberttnovak/MedicineScraper",
+    image: "/projects/medicine-scraper.webp",
+    tags: [TAGS.PYTHON, TAGS.SELENIUM, TAGS.PANDAS],
   },
 ];
 ---
@@ -234,7 +270,18 @@ const PROJECTS = [
         boxShadow: "none",
       },
     },
+    hidden: {
+      cardStyles: {
+        transform: "translateX(0) scale(0.8)",
+        opacity: "0",
+        "z-index": "-1",
+      },
+      imgStyles: {
+        boxShadow: "none",
+      },
+    },
   };
+
   function changeCardStyles(
     cardId: string,
     styles: Record<string, Record<string, string>>
@@ -248,9 +295,11 @@ const PROJECTS = [
       cardImg.style.setProperty(key, value);
     }
   }
+
   const inputs = document.querySelectorAll<HTMLInputElement>(
     'input[name="slider"]'
   );
+
   inputs.forEach((input, index) => {
     input.addEventListener("change", () => {
       changeCardStyles(
@@ -265,6 +314,12 @@ const PROJECTS = [
         `project-content-${((index + 1) % inputs.length) + 1}`,
         cardTransformations.right
       );
+      for (let i = 2; i < inputs.length - 1; i++) {
+        changeCardStyles(
+          `project-content-${((index + i) % inputs.length) + 1}`,
+          cardTransformations.hidden
+        );
+      }
     });
   });
 
